@@ -92,21 +92,18 @@ nav a:hover{
   color:white;
 }
 
-/* STICKY HERO BACKGROUND */
+/* STICKY HERO */
 
 .hero{
   position:fixed;
   top:0;
   left:0;
-
   width:100%;
   height:100vh;
-
   background-image:url("banner.jpg");
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
-
   z-index:-1;
 }
 
@@ -118,23 +115,20 @@ nav a:hover{
     to bottom,
     rgba(0,0,0,0.45),
     rgba(15,17,21,0.45),
-    rgba(0,0,0,0.7)
+    rgba(0,0,0,0.75)
   );
 }
 
-/* HERO TEXT */
+/* HERO CONTENT */
 
 .hero-content{
   position:relative;
   z-index:2;
-
   height:100vh;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   text-align:center;
   padding:20px;
 }
@@ -143,16 +137,11 @@ nav a:hover{
   width:150px;
   height:150px;
   object-fit:contain;
-
   margin-bottom:28px;
-
   border-radius:50%;
   background:rgba(255,255,255,0.08);
-
   padding:10px;
-
   backdrop-filter:blur(8px);
-
   box-shadow:
   0 10px 30px rgba(0,0,0,0.35),
   0 0 25px rgba(255,255,255,0.06);
@@ -164,7 +153,6 @@ nav a:hover{
   margin-bottom:15px;
   line-height:1.1;
   font-weight:700;
-
   text-shadow:
   0 4px 20px rgba(0,0,0,0.5),
   0 2px 8px rgba(0,0,0,0.6);
@@ -184,7 +172,7 @@ nav a:hover{
   background:#171b21;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 .section{
   padding:90px 50px;
@@ -243,11 +231,44 @@ nav a:hover{
   line-height:1.7;
 }
 
-/* LOCATION SECTION */
+/* SPORTS HIGHLIGHTS */
 
-.location-section{
-  padding-top:20px;
+.sports-highlight{
+  margin-top:50px;
+  background:#252b34;
+  border-radius:24px;
+  padding:35px;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 12px 35px rgba(0,0,0,0.25);
 }
+
+.sports-highlight h3{
+  color:white;
+  font-size:30px;
+  margin-bottom:25px;
+}
+
+.highlight-points{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  max-width:700px;
+  margin:auto;
+  text-align:left;
+}
+
+.highlight-box{
+  background:#1f252d;
+  padding:18px 22px;
+  border-radius:16px;
+}
+
+.highlight-box strong{
+  color:white;
+  font-size:18px;
+}
+
+/* LOCATION */
 
 .location-container{
   display:grid;
@@ -292,7 +313,6 @@ nav a:hover{
   font-size:46px;
   color:white;
   margin-bottom:20px;
-  line-height:1.1;
 }
 
 .location-details p{
@@ -311,13 +331,11 @@ nav a:hover{
   background:#252b34;
   padding:20px;
   border-radius:18px;
-  border:1px solid rgba(255,255,255,0.06);
 }
 
 .info-box h4{
   color:white;
   margin-bottom:8px;
-  font-size:18px;
 }
 
 .location-btn{
@@ -331,11 +349,6 @@ nav a:hover{
   padding:16px 28px;
   border-radius:14px;
   font-weight:600;
-  transition:0.3s;
-}
-
-.location-btn:hover{
-  transform:translateY(-3px);
 }
 
 /* OFFER */
@@ -365,15 +378,12 @@ nav a:hover{
   font-size:42px;
   color:white;
   margin-bottom:15px;
-  line-height:1.2;
 }
 
 .offer-card p{
   color:#e2e8f0;
   font-size:17px;
   line-height:1.8;
-  max-width:700px;
-  margin:auto;
 }
 
 /* BOOKING */
@@ -384,15 +394,12 @@ nav a:hover{
   border-radius:22px;
   max-width:650px;
   margin:40px auto;
-  box-shadow:0 12px 35px rgba(0,0,0,0.32);
-  border:1px solid rgba(255,255,255,0.06);
 }
 
 .booking-text{
   color:#b6bcc6;
   margin-bottom:28px;
   font-size:16px;
-  line-height:1.8;
 }
 
 .contact-buttons{
@@ -413,10 +420,6 @@ nav a:hover{
   font-size:15px;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-}
-
 .call-btn{
   background:#0f7a96;
   color:white;
@@ -434,7 +437,6 @@ nav a:hover{
   margin:auto;
   line-height:1.8;
   color:#b3bac5;
-  font-size:16px;
 }
 
 /* FOOTER */
@@ -464,13 +466,7 @@ footer{
   justify-content:center;
   text-decoration:none;
   font-size:20px;
-  transition:0.3s;
   color:white;
-}
-
-.footer-socials a:hover{
-  transform:translateY(-4px);
-  background:#14859f;
 }
 
 /* MOBILE */
@@ -481,16 +477,8 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .map-box{
-    height:350px;
-  }
-
   .location-details{
     text-align:center;
-  }
-
-  .location-details h2{
-    font-size:34px;
   }
 
 }
@@ -499,15 +487,6 @@ footer{
 
   header{
     padding:15px 20px;
-  }
-
-  .logo{
-    width:40px;
-    height:40px;
-  }
-
-  .logo-area h1{
-    font-size:16px;
   }
 
   nav{
@@ -521,40 +500,29 @@ footer{
     padding:20px 0;
   }
 
-  nav a{
-    margin:12px 0;
-  }
-
   nav.active{
     display:flex;
+  }
+
+  nav a{
+    margin:12px 0;
   }
 
   .menu-toggle{
     display:block;
   }
 
-  .hero{
-    height:100svh;
+  .hero-content h2{
+    font-size:42px;
   }
 
-  .hero-content{
-    height:100svh;
-    padding-top:70px;
+  .hero-content p{
+    font-size:16px;
   }
 
   .hero-logo{
     width:110px;
     height:110px;
-    margin-bottom:22px;
-  }
-
-  .hero-content h2{
-    font-size:42px;
-    line-height:1.15;
-  }
-
-  .hero-content p{
-    font-size:16px;
   }
 
   .section{
@@ -569,26 +537,13 @@ footer{
     flex-direction:column;
   }
 
-  .offer-card{
-    padding:30px 20px;
-  }
-
-  .offer-card h3{
-    font-size:30px;
-  }
-
-  .offer-card p{
-    font-size:15px;
+  .map-box{
+    height:350px;
   }
 
 }
 
 @media (max-width:480px){
-
-  .hero-logo{
-    width:90px;
-    height:90px;
-  }
 
   .hero-content h2{
     font-size:34px;
@@ -598,8 +553,9 @@ footer{
     font-size:14px;
   }
 
-  .section h2{
-    font-size:30px;
+  .hero-logo{
+    width:90px;
+    height:90px;
   }
 
 }
@@ -632,15 +588,13 @@ document.addEventListener("click", function(event){
 
 </script>
 
-<!-- STICKY BANNER -->
+<!-- HERO -->
 
 <section class="hero"></section>
 
-<!-- HERO CONTENT -->
-
 <section class="hero-content">
 
-  <img src="logo1.png" alt="Mister Turf Hero Logo" class="hero-logo">
+  <img src="logo1.png" alt="" class="hero-logo">
 
   <h2>Play. Sweat. Celebrate.</h2>
 
@@ -656,7 +610,7 @@ document.addEventListener("click", function(event){
 
   <div class="logo-area">
 
-    <img src="logo.png" alt="Mister Turf Logo" class="logo">
+    <img src="logo.png" alt="" class="logo">
 
     <h1>Mister Turf</h1>
 
@@ -666,6 +620,7 @@ document.addEventListener("click", function(event){
 
   <nav id="nav-menu">
     <a href="#">Home</a>
+    <a href="#sports">Sports</a>
     <a href="#hotels">Services</a>
     <a href="#booking">Booking</a>
     <a href="#about">About</a>
@@ -676,6 +631,66 @@ document.addEventListener("click", function(event){
 <!-- CONTENT -->
 
 <div class="content">
+
+<!-- SPORTS -->
+
+<section id="sports" class="section">
+
+  <h2>Available Sports</h2>
+
+  <div class="hotels">
+
+    <div class="card">
+      <img src="football11.png" alt="">
+      <div class="card-content">
+        <h3>Football</h3>
+        <p>
+          Professional football experience with premium turf and match atmosphere.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="cricket.png" alt="">
+      <div class="card-content">
+        <h3>Cricket</h3>
+        <p>
+          Enjoy exciting box cricket matches with premium facilities and lighting.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="badminton.png" alt="">
+      <div class="card-content">
+        <h3>Badminton</h3>
+        <p>
+          Smooth professional courts designed for practice and tournaments.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sports-highlight">
+
+    <h3>Key Features Of Mister Turf</h3>
+
+    <div class="highlight-points">
+
+      <div class="highlight-box">
+        <strong>✓ FIFA Approved Grass</strong>
+      </div>
+
+      <div class="highlight-box">
+        <strong>✓ Video Assistant Referee</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- SERVICES -->
 
@@ -715,67 +730,47 @@ document.addEventListener("click", function(event){
 
 <!-- LOCATION -->
 
-<section class="section location-section">
+<section class="section">
 
   <div class="location-container">
 
     <div class="map-box">
 
       <iframe
-       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.5406521763116!2d74.9977415!3d23.332419400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963ff007347c675%3A0xa296bb4a2e22d94e!2sMr.Turf%20-%20Mister%20Turff!5e0!3m2!1sen!2sin!4v1778179667364!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.5406521763116!2d74.9977415!3d23.332419400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963ff007347c675%3A0xa296bb4a2e22d94e!2sMr.Turf%20-%20Mister%20Turff!5e0!3m2!1sen!2sin!4v1778179667364!5m2!1sen!2sin"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
       </iframe>
 
     </div>
 
     <div class="location-details">
 
-      <span class="location-tag">
-        LOCATION
-      </span>
+      <span class="location-tag">LOCATION</span>
 
-      <h2>
-        Visit Mister Turf
-      </h2>
+      <h2>Visit Mister Turf</h2>
 
       <p>
-        Experience premium football turf, cooling mist system,
-        professional match atmosphere and a modern 3 floor pavilion
-        built for players and spectators.
+        Premium football turf experience with modern facilities,
+        cooling mist and professional atmosphere.
       </p>
 
       <div class="location-info">
 
         <div class="info-box">
           <h4>Address</h4>
-          <p>
-            Mister Turf,<br>
-            Ratlam, Madhya Pradesh
-          </p>
+          <p>Ratlam, Madhya Pradesh</p>
         </div>
 
         <div class="info-box">
           <h4>Contact</h4>
-          <p>
-            +91 8120400017
-          </p>
-        </div>
-
-        <div class="info-box">
-          <h4>Timings</h4>
-          <p>
-            Open Daily<br>
-            6 AM - 12 AM
-          </p>
+          <p>+91 8120400017</p>
         </div>
 
       </div>
 
-      <a 
+      <a
       href="https://maps.app.goo.gl/oAZLSFF7d3GfsZUt8"
       target="_blank"
       class="location-btn">
@@ -803,8 +798,7 @@ document.addEventListener("click", function(event){
     </h3>
 
     <p>
-      On the 17th of every month, players booking a 1 hour turf slot receive an additional
-      1 hour absolutely free.
+      On the 17th of every month, players booking a 1 hour turf slot receive an additional 1 hour absolutely free.
     </p>
 
   </div>
@@ -829,8 +823,8 @@ document.addEventListener("click", function(event){
         📞 Call For Booking
       </a>
 
-      <a 
-      href="https://wa.me/918120400017?text=Hello%20Mister%20Turf,%20I%20want%20to%20book%20a%20slot."
+      <a
+      href="https://wa.me/918120400017"
       target="_blank"
       class="btn whatsapp-btn">
         WhatsApp Booking
@@ -849,8 +843,7 @@ document.addEventListener("click", function(event){
   <h2>About Mister Turf</h2>
 
   <p>
-    Mister Turf is a premium football arena designed for players who love
-    high-quality matches, professional turf experience and a vibrant sports atmosphere.
+    Mister Turf is a premium football arena designed for players who love high-quality matches and vibrant sports atmosphere.
   </p>
 
 </section>
