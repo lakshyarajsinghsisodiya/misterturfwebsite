@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mister Turf</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#0f1115;
+  color:#e5e7eb;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  background:rgba(15,17,21,0.45);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:18px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  border-radius:50%;
+  background:white;
+  padding:3px;
+}
+
+.logo-area h1{
+  color:white;
+  font-size:20px;
+  letter-spacing:2px;
+  font-weight:600;
+}
+
+/* NAV */
+
+nav{
+  display:flex;
+  align-items:center;
+}
+
+nav a{
+  text-decoration:none;
+  margin-left:25px;
+  color:#f3f4f6;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  opacity:0.7;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+  color:white;
+}
+
+/* HERO */
+
+.hero{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+
+  background-image:url("banner.jpg");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+
+  z-index:1;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45),
+    rgba(15,17,21,0.45),
+    rgba(0,0,0,0.7)
+  );
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:20px;
+  max-width:900px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* HERO LOGO */
+
+.hero-logo{
+  width:150px;
+  height:150px;
+  object-fit:contain;
+  margin-bottom:28px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  padding:10px;
+  backdrop-filter:blur(8px);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.35),
+  0 0 25px rgba(255,255,255,0.06);
+}
+
+.hero h2{
+  font-size:72px;
+  color:white;
+  margin-bottom:15px;
+  line-height:1.1;
+  font-weight:700;
+  text-shadow:
+  0 4px 20px rgba(0,0,0,0.5),
+  0 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p{
+  font-size:20px;
+  color:#d1d5db;
+  text-shadow:0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* CONTENT */
+
+.content{
+  position:relative;
+  z-index:2;
+  background:#171b21;
+}
+
+/* SECTION */
+
+.section{
+  padding:90px 50px;
+  text-align:center;
+}
+
+.section h2{
+  font-size:40px;
+  margin-bottom:20px;
+  color:white;
+}
+
+/* CARDS */
+
+.hotels{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  margin-top:50px;
+}
+
+.card{
+  background:#252b34;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.28);
+  transition:0.35s ease;
+  border:1px solid rgba(255,255,255,0.07);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  background:#2d3541;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-content{
+  padding:25px;
+}
+
+.card-content h3{
+  margin-bottom:10px;
+  font-size:22px;
+  color:white;
+}
+
+.card-content p{
+  color:#b3bac5;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* OFFER */
+
+.offer-card{
+  margin-top:50px;
+  background:linear-gradient(135deg,#0f7a96,#14859f);
+  border-radius:24px;
+  padding:40px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
+}
+
+.offer-badge{
+  display:inline-block;
+  background:white;
+  color:#0f7a96;
+  padding:8px 18px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:18px;
+}
+
+.offer-card h3{
+  font-size:42px;
+  color:white;
+  margin-bottom:15px;
+  line-height:1.2;
+}
+
+.offer-card p{
+  color:#e2e8f0;
+  font-size:17px;
+  line-height:1.8;
+  max-width:700px;
+  margin:auto;
+}
+
+/* BOOKING */
+
+.booking-form{
+  background:#252b34;
+  padding:45px 35px;
+  border-radius:22px;
+  max-width:650px;
+  margin:40px auto;
+  box-shadow:0 12px 35px rgba(0,0,0,0.32);
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.booking-text{
+  color:#b6bcc6;
+  margin-bottom:28px;
+  font-size:16px;
+  line-height:1.8;
+}
+
+.contact-buttons{
+  display:flex;
+  gap:18px;
+}
+
+.btn{
+  flex:1;
+  padding:16px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+  font-size:15px;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.call-btn{
+  background:#0f7a96;
+  color:white;
+}
+
+.whatsapp-btn{
+  background:#14859f;
+  color:white;
+}
+
+/* ABOUT */
+
+#about p{
+  max-width:800px;
+  margin:auto;
+  line-height:1.8;
+  color:#b3bac5;
+  font-size:16px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:30px;
+  text-align:center;
+  background:#0b0d11;
+  color:#9ca3af;
+}
+
+.footer-socials{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.footer-socials a{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:#1f252d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:20px;
+  transition:0.3s;
+  color:white;
+}
+
+.footer-socials a:hover{
+  transform:translateY(-4px);
+  background:#14859f;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+  header{
+    padding:15px 20px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+  }
+
+  .logo-area h1{
+    font-size:16px;
+  }
+
+  nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#1f252d;
+    flex-direction:column;
+    display:none;
+    padding:20px 0;
+  }
+
+  nav a{
+    margin:12px 0;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .hero{
+    height:100svh;
+  }
+
+  .hero-content{
+    padding-top:70px;
+  }
+
+  .hero-logo{
+    width:110px;
+    height:110px;
+    margin-bottom:22px;
+  }
+
+  .hero h2{
+    font-size:42px;
+    line-height:1.15;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .section{
+    padding:70px 20px;
+  }
+
+  .hotels{
+    grid-template-columns:1fr;
+  }
+
+  .contact-buttons{
+    flex-direction:column;
+  }
+
+  .offer-card{
+    padding:30px 20px;
+  }
+
+  .offer-card h3{
+    font-size:30px;
+  }
+
+  .offer-card p{
+    font-size:15px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .hero{
+    height:100svh;
+  }
+
+  .hero-logo{
+    width:90px;
+    height:90px;
+  }
+
+  .hero h2{
+    font-size:34px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .section h2{
+    font-size:30px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header id="header">
+
+  <div class="logo-area">
+
+    <img src="logo.png" alt="Mister Turf Logo" class="logo">
+
+    <h1>Mister Turf</h1>
+
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <nav id="nav-menu">
+    <a href="#">Home</a>
+    <a href="#hotels">Services</a>
+    <a href="#booking">Booking</a>
+    <a href="#about">About</a>
+  </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <img src="logo1.png" alt="Mister Turf Hero Logo" class="hero-logo">
+
+    <h2>Play. Sweat. Celebrate.</h2>
+
+    <p>
+      Experience Premium Football Turf In Ratlam
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<!-- SERVICES -->
+
+<section id="hotels" class="section">
+
+  <h2>Our Services</h2>
+
+  <div class="hotels">
+
+    <div class="card">
+      <img src="Mit2.png" alt="">
+      <div class="card-content">
+        <h3>Cooling Mist</h3>
+        <p>Perfect for high stamina sports and summer matches.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="pavalion.png" alt="">
+      <div class="card-content">
+        <h3>3 Floor Pavilion</h3>
+        <p>Sit, eat and enjoy matches with premium viewing.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="membership.png" alt="">
+      <div class="card-content">
+        <h3>Membership Plans</h3>
+        <p>Special plans for regular and professional players.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OFFER -->
+
+<section class="section">
+
+  <div class="offer-card">
+
+    <div class="offer-badge">
+      17th OF EVERY MONTH
+    </div>
+
+    <h3>
+      Book 1 Hour & Get 1 Hour FREE
+    </h3>
+
+    <p>
+      17th of every month, players booking a 1 hour turf slot receive an additional
+      1 hour absolutely free.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- BOOKING -->
+
+<section id="booking" class="section">
+
+  <h2>Book Your Slot</h2>
+
+  <div class="booking-form">
+
+    <p class="booking-text">
+      Contact us directly to reserve your turf slot instantly.
+    </p>
+
+    <div class="contact-buttons">
+
+      <a href="tel:+918120400017" class="btn call-btn">
+        📞 Call For Booking
+      </a>
+
+      <a 
+      href="https://wa.me/918120400017?text=Hello%20Mister%20Turf,%20I%20want%20to%20book%20a%20slot."
+      target="_blank"
+      class="btn whatsapp-btn">
+        WhatsApp Booking
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+  <h2>About Mister Turf</h2>
+
+  <p>
+    Mister Turf is a premium football arena designed for players who love
+    high-quality matches, professional turf experience and a vibrant sports atmosphere.
+  </p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>© 2026 Mister Turf. All Rights Reserved.</p>
+
+  <div class="footer-socials">
+
+    <a href="https://www.instagram.com/misterturff/" target="_blank">
+      🅾
+    </a>
+
+    <a href="https://wa.me/918120400017" target="_blank">
+      ✆
+    </a>
+
+    <a href="https://maps.google.com/" target="_blank">
+      ⚲
+    </a>
+
+    <a href="tel:+918120400017">
+      🕻
+    </a>
+
+  </div>
+
+</footer>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+const header = document.getElementById("header");
+
+menuToggle.addEventListener("click", function(e){
+  e.stopPropagation();
+  navMenu.classList.toggle("active");
+});
+
+/* CLOSE MENU WHEN CLICKING OUTSIDE */
+
+document.addEventListener("click", function(e){
+
+  if(
+    navMenu.classList.contains("active") &&
+    !header.contains(e.target)
+  ){
+    navMenu.classList.remove("active");
+  }
+
+});
+
+/* CLOSE MENU WHEN CLICKING NAV LINK */
+
+document.querySelectorAll("#nav-menu a").forEach(link => {
+
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+
+});
+
+</script>
+
+</body>
+</html>
