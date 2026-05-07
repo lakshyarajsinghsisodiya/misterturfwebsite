@@ -181,10 +181,7 @@ nav a:hover{
 .content{
   position:relative;
   z-index:2;
-
   background:#171b21;
-
-  margin-top:0;
 }
 
 /* SECTIONS */
@@ -244,6 +241,101 @@ nav a:hover{
   color:#b3bac5;
   font-size:15px;
   line-height:1.7;
+}
+
+/* LOCATION SECTION */
+
+.location-section{
+  padding-top:20px;
+}
+
+.location-container{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:40px;
+  align-items:center;
+  margin-top:40px;
+}
+
+.map-box{
+  width:100%;
+  height:500px;
+  overflow:hidden;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
+  background:#252b34;
+}
+
+.map-box iframe{
+  width:100%;
+  height:100%;
+}
+
+.location-details{
+  text-align:left;
+}
+
+.location-tag{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:50px;
+  background:#14859f;
+  color:white;
+  font-size:12px;
+  letter-spacing:1px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.location-details h2{
+  font-size:46px;
+  color:white;
+  margin-bottom:20px;
+  line-height:1.1;
+}
+
+.location-details p{
+  color:#b3bac5;
+  line-height:1.8;
+  font-size:16px;
+}
+
+.location-info{
+  margin-top:30px;
+  display:grid;
+  gap:18px;
+}
+
+.info-box{
+  background:#252b34;
+  padding:20px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.info-box h4{
+  color:white;
+  margin-bottom:8px;
+  font-size:18px;
+}
+
+.location-btn{
+  margin-top:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:#14859f;
+  color:white;
+  padding:16px 28px;
+  border-radius:14px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.location-btn:hover{
+  transform:translateY(-3px);
 }
 
 /* OFFER */
@@ -382,6 +474,26 @@ footer{
 }
 
 /* MOBILE */
+
+@media (max-width:900px){
+
+  .location-container{
+    grid-template-columns:1fr;
+  }
+
+  .map-box{
+    height:350px;
+  }
+
+  .location-details{
+    text-align:center;
+  }
+
+  .location-details h2{
+    font-size:34px;
+  }
+
+}
 
 @media (max-width:768px){
 
@@ -524,7 +636,7 @@ document.addEventListener("click", function(event){
 
 <section class="hero"></section>
 
-<!-- SCROLLING HERO TEXT -->
+<!-- HERO CONTENT -->
 
 <section class="hero-content">
 
@@ -565,6 +677,8 @@ document.addEventListener("click", function(event){
 
 <div class="content">
 
+<!-- SERVICES -->
+
 <section id="hotels" class="section">
 
   <h2>Our Services</h2>
@@ -599,6 +713,83 @@ document.addEventListener("click", function(event){
 
 </section>
 
+<!-- LOCATION -->
+
+<section class="section location-section">
+
+  <div class="location-container">
+
+    <div class="map-box">
+
+      <iframe
+       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.5406521763116!2d74.9977415!3d23.332419400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963ff007347c675%3A0xa296bb4a2e22d94e!2sMr.Turf%20-%20Mister%20Turff!5e0!3m2!1sen!2sin!4v1778179667364!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+    <div class="location-details">
+
+      <span class="location-tag">
+        LOCATION
+      </span>
+
+      <h2>
+        Visit Mister Turf
+      </h2>
+
+      <p>
+        Experience premium football turf, cooling mist system,
+        professional match atmosphere and a modern 3 floor pavilion
+        built for players and spectators.
+      </p>
+
+      <div class="location-info">
+
+        <div class="info-box">
+          <h4>Address</h4>
+          <p>
+            Mister Turf,<br>
+            Ratlam, Madhya Pradesh
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h4>Contact</h4>
+          <p>
+            +91 8120400017
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h4>Timings</h4>
+          <p>
+            Open Daily<br>
+            6 AM - 12 AM
+          </p>
+        </div>
+
+      </div>
+
+      <a 
+      href="https://maps.app.goo.gl/oAZLSFF7d3GfsZUt8"
+      target="_blank"
+      class="location-btn">
+        Open In Google Maps
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OFFER -->
+
 <section class="section">
 
   <div class="offer-card">
@@ -619,6 +810,8 @@ document.addEventListener("click", function(event){
   </div>
 
 </section>
+
+<!-- BOOKING -->
 
 <section id="booking" class="section">
 
@@ -649,6 +842,8 @@ document.addEventListener("click", function(event){
 
 </section>
 
+<!-- ABOUT -->
+
 <section id="about" class="section">
 
   <h2>About Mister Turf</h2>
@@ -659,6 +854,8 @@ document.addEventListener("click", function(event){
   </p>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 
