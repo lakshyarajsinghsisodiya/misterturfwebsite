@@ -92,25 +92,22 @@ nav a:hover{
   color:white;
 }
 
-/* HERO */
+/* STICKY HERO BACKGROUND */
 
 .hero{
-  position:sticky;
+  position:fixed;
   top:0;
+  left:0;
+
   width:100%;
   height:100vh;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
 
   background-image:url("banner.jpg");
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
 
-  z-index:1;
+  z-index:-1;
 }
 
 .hero::before{
@@ -123,31 +120,37 @@ nav a:hover{
     rgba(15,17,21,0.45),
     rgba(0,0,0,0.7)
   );
-  z-index:1;
 }
+
+/* HERO TEXT */
 
 .hero-content{
   position:relative;
   z-index:2;
-  padding:20px;
-  max-width:900px;
+
+  height:100vh;
 
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-}
 
-/* HERO LOGO */
+  text-align:center;
+  padding:20px;
+}
 
 .hero-logo{
   width:150px;
   height:150px;
   object-fit:contain;
+
   margin-bottom:28px;
+
   border-radius:50%;
   background:rgba(255,255,255,0.08);
+
   padding:10px;
+
   backdrop-filter:blur(8px);
 
   box-shadow:
@@ -155,18 +158,19 @@ nav a:hover{
   0 0 25px rgba(255,255,255,0.06);
 }
 
-.hero h2{
+.hero-content h2{
   font-size:72px;
   color:white;
   margin-bottom:15px;
   line-height:1.1;
   font-weight:700;
+
   text-shadow:
   0 4px 20px rgba(0,0,0,0.5),
   0 2px 8px rgba(0,0,0,0.6);
 }
 
-.hero p{
+.hero-content p{
   font-size:20px;
   color:#d1d5db;
   text-shadow:0 2px 10px rgba(0,0,0,0.5);
@@ -177,10 +181,13 @@ nav a:hover{
 .content{
   position:relative;
   z-index:2;
+
   background:#171b21;
+
+  margin-top:0;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section{
   padding:90px 50px;
@@ -419,6 +426,7 @@ footer{
   }
 
   .hero-content{
+    height:100svh;
     padding-top:70px;
   }
 
@@ -428,12 +436,12 @@ footer{
     margin-bottom:22px;
   }
 
-  .hero h2{
+  .hero-content h2{
     font-size:42px;
     line-height:1.15;
   }
 
-  .hero p{
+  .hero-content p{
     font-size:16px;
   }
 
@@ -465,20 +473,16 @@ footer{
 
 @media (max-width:480px){
 
-  .hero{
-    height:100svh;
-  }
-
   .hero-logo{
     width:90px;
     height:90px;
   }
 
-  .hero h2{
+  .hero-content h2{
     font-size:34px;
   }
 
-  .hero p{
+  .hero-content p{
     font-size:14px;
   }
 
@@ -493,9 +497,50 @@ footer{
 
 <body>
 
+<script>
+
+function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("active");
+}
+
+document.addEventListener("click", function(event){
+
+  const nav = document.getElementById("nav-menu");
+  const menuBtn = document.querySelector(".menu-toggle");
+
+  if(
+    nav.classList.contains("active") &&
+    !nav.contains(event.target) &&
+    !menuBtn.contains(event.target)
+  ){
+    nav.classList.remove("active");
+  }
+
+});
+
+</script>
+
+<!-- STICKY BANNER -->
+
+<section class="hero"></section>
+
+<!-- SCROLLING HERO TEXT -->
+
+<section class="hero-content">
+
+  <img src="logo1.png" alt="Mister Turf Hero Logo" class="hero-logo">
+
+  <h2>Play. Sweat. Celebrate.</h2>
+
+  <p>
+    Experience Premium Football Turf In Ratlam
+  </p>
+
+</section>
+
 <!-- HEADER -->
 
-<header id="header">
+<header>
 
   <div class="logo-area">
 
@@ -505,7 +550,7 @@ footer{
 
   </div>
 
-  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav id="nav-menu">
     <a href="#">Home</a>
@@ -516,29 +561,9 @@ footer{
 
 </header>
 
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <img src="logo1.png" alt="Mister Turf Hero Logo" class="hero-logo">
-
-    <h2>Play. Sweat. Celebrate.</h2>
-
-    <p>
-      Experience Premium Football Turf In Ratlam
-    </p>
-
-  </div>
-
-</section>
-
 <!-- CONTENT -->
 
 <div class="content">
-
-<!-- SERVICES -->
 
 <section id="hotels" class="section">
 
@@ -574,8 +599,6 @@ footer{
 
 </section>
 
-<!-- OFFER -->
-
 <section class="section">
 
   <div class="offer-card">
@@ -589,15 +612,13 @@ footer{
     </h3>
 
     <p>
-      17th of every month, players booking a 1 hour turf slot receive an additional
+      On the 17th of every month, players booking a 1 hour turf slot receive an additional
       1 hour absolutely free.
     </p>
 
   </div>
 
 </section>
-
-<!-- BOOKING -->
 
 <section id="booking" class="section">
 
@@ -628,8 +649,6 @@ footer{
 
 </section>
 
-<!-- ABOUT -->
-
 <section id="about" class="section">
 
   <h2>About Mister Turf</h2>
@@ -640,8 +659,6 @@ footer{
   </p>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -657,7 +674,7 @@ footer{
       ✆
     </a>
 
-    <a href="https://maps.google.com/" target="_blank">
+    <a href="https://www.google.com/maps" target="_blank">
       ⚲
     </a>
 
@@ -670,44 +687,6 @@ footer{
 </footer>
 
 </div>
-
-<!-- JAVASCRIPT -->
-
-<script>
-
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
-const header = document.getElementById("header");
-
-menuToggle.addEventListener("click", function(e){
-  e.stopPropagation();
-  navMenu.classList.toggle("active");
-});
-
-/* CLOSE MENU WHEN CLICKING OUTSIDE */
-
-document.addEventListener("click", function(e){
-
-  if(
-    navMenu.classList.contains("active") &&
-    !header.contains(e.target)
-  ){
-    navMenu.classList.remove("active");
-  }
-
-});
-
-/* CLOSE MENU WHEN CLICKING NAV LINK */
-
-document.querySelectorAll("#nav-menu a").forEach(link => {
-
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-  });
-
-});
-
-</script>
 
 </body>
 </html>
