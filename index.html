@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
 <title>Mister Turf</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -266,6 +268,56 @@ nav a:hover{
 .highlight-box strong{
   color:white;
   font-size:18px;
+}
+
+/* WHY PLAYERS LOVE US */
+
+.stats{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.stat-box{
+  background:#252b34;
+  border-radius:22px;
+  padding:35px 25px;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 15px 40px rgba(0,0,0,0.28);
+  transition:0.35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.stat-box::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,#0f7a96,#14859f);
+}
+
+.stat-box:hover{
+  transform:translateY(-8px);
+  background:#2d3541;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+}
+
+.stat-box h3{
+  font-size:42px;
+  font-weight:700;
+  color:white;
+  margin-bottom:12px;
+  text-shadow:0 4px 15px rgba(0,0,0,0.35);
+}
+
+.stat-box p{
+  color:#b3bac5;
+  font-size:16px;
+  letter-spacing:0.3px;
 }
 
 /* LOCATION */
@@ -541,6 +593,18 @@ footer{
     height:350px;
   }
 
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .stat-box{
+    padding:30px 20px;
+  }
+
+  .stat-box h3{
+    font-size:36px;
+  }
+
 }
 
 @media (max-width:480px){
@@ -560,33 +624,77 @@ footer{
 
 }
 
-</style>
-</head>
 
-<body>
+/* GALLERY */
 
-<script>
-
-function toggleMenu(){
-  document.getElementById("nav-menu").classList.toggle("active");
+.gallery-section{
+  overflow:hidden;
 }
 
-document.addEventListener("click", function(event){
+.gallery-wrapper{
+  margin-top:55px;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
 
-  const nav = document.getElementById("nav-menu");
-  const menuBtn = document.querySelector(".menu-toggle");
+.gallery-track{
+  display:flex;
+  width:max-content;
+  gap:24px;
+}
 
-  if(
-    nav.classList.contains("active") &&
-    !nav.contains(event.target) &&
-    !menuBtn.contains(event.target)
-  ){
-    nav.classList.remove("active");
+.gallery-item{
+  width:320px;
+  height:220px;
+  border-radius:22px;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#252b34;
+  border:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 15px 40px rgba(0,0,0,0.28);
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s ease;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.06);
+}
+
+.left-scroll{
+  animation:scrollLeft 70s linear infinite;
+}
+
+.right-scroll{
+  animation:scrollRight 70s linear infinite;
+}
+
+@keyframes scrollLeft{
+  from{
+    transform:translateX(0);
   }
+  to{
+    transform:translateX(-50%);
+  }
+}
 
-});
+@keyframes scrollRight{
+  from{
+    transform:translateX(-50%);
+  }
+  to{
+    transform:translateX(0);
+  }
+}
 
-</script>
+</style>
+</head>
+<body>
 
 <!-- HERO -->
 
@@ -599,7 +707,7 @@ document.addEventListener("click", function(event){
   <h2>Play. Sweat. Celebrate.</h2>
 
   <p>
-    Experience Premium Football Turf In Ratlam
+    Experience Premium Sports Turf In Ratlam
   </p>
 
 </section>
@@ -628,11 +736,7 @@ document.addEventListener("click", function(event){
 
 </header>
 
-<!-- CONTENT -->
-
 <div class="content">
-
-<!-- SPORTS -->
 
 <section id="sports" class="section">
 
@@ -692,6 +796,65 @@ document.addEventListener("click", function(event){
 
 </section>
 
+
+
+<!-- GALLERY SECTION -->
+
+<section class="section gallery-section">
+
+  <h2>Gallery</h2>
+
+  <div class="gallery-wrapper">
+
+    <div class="gallery-track left-scroll">
+
+      <div class="gallery-item"><img src="g1.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g2.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g3.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g4.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g5.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g6.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g7.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g1.jpg" alt=""></div>
+
+      <div class="gallery-item"><img src="g11.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="g9.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g10.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g12.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="g8.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g6.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g2.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g11.jpeg" alt=""></div>
+
+    </div>
+
+    <div class="gallery-track right-scroll">
+
+      <div class="gallery-item"><img src="g9.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g11.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="g1.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g2.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g3.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g4.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g5.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g6.jpg" alt=""></div>
+
+      <div class="gallery-item"><img src="g9.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g12.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="g7.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g11.jpeg" alt=""></div>
+      <div class="gallery-item"><img src="g10.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g4.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g5.jpg" alt=""></div>
+      <div class="gallery-item"><img src="g6.jpg" alt=""></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- SERVICES -->
 
 <section id="hotels" class="section">
@@ -728,6 +891,7 @@ document.addEventListener("click", function(event){
 
 </section>
 
+
 <!-- LOCATION -->
 
 <section class="section">
@@ -760,7 +924,7 @@ document.addEventListener("click", function(event){
 
         <div class="info-box">
           <h4>Address</h4>
-          <p>Ratlam, Madhya Pradesh</p>
+          <p>Surekha planning, Sagod road, Ratlam, Madhya Pradesh</p>
         </div>
 
         <div class="info-box">
@@ -824,7 +988,7 @@ document.addEventListener("click", function(event){
       </a>
 
       <a
-      href="https://wa.me/918120400017"
+      href="https://wa.me/918120400017?text=Hello%20Mister%20Turf,%20I%20want%20to%20book%20a%20slot."
       target="_blank"
       class="btn whatsapp-btn">
         WhatsApp Booking
@@ -835,6 +999,40 @@ document.addEventListener("click", function(event){
   </div>
 
 </section>
+<!-- why player loves us -->
+
+
+
+<section class="section reveal">
+
+    <h2>Why Players Love Us</h2>
+    
+    <div class="stats">
+    
+    <div class="stat-box">
+    <h3>500+</h3>
+    <p>Matches Played</p>
+    </div>
+    
+    <div class="stat-box">
+    <h3>1000+</h3>
+    <p>Happy Players</p>
+    </div>
+    
+    <div class="stat-box">
+    <h3>4.9★</h3>
+    <p>Average Rating</p>
+    </div>
+    
+    <div class="stat-box">
+    <h3>24/7</h3>
+    <p>Booking Support</p>
+    </div>
+    
+    </div>
+    
+    </section>
+    
 
 <!-- ABOUT -->
 
@@ -856,27 +1054,23 @@ document.addEventListener("click", function(event){
 
   <div class="footer-socials">
 
-    <a href="https://www.instagram.com/misterturff/" target="_blank">
-      🅾
-    </a>
-
-    <a href="https://wa.me/918120400017" target="_blank">
-      ✆
-    </a>
-
-    <a href="https://maps.app.goo.gl/oAZLSFF7d3GfsZUt8" target="_blank">
-      ⚲
-    </a>
-
-    <a href="tel:+918120400017">
-      🕻
-    </a>
+      <a href="https://www.instagram.com/misterturff/"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/918120400017"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://maps.app.goo.gl/oAZLSFF7d3GfsZUt8"><i class="fa-solid fa-location-dot"></i></a>
+      <a href="tel:+918120400017"><i class="fa-solid fa-phone"></i></a>
 
   </div>
 
 </footer>
 
 </div>
+<script>
+
+function toggleMenu(){
+  document.getElementById("nav-menu").classList.toggle("active");
+}
+
+</script>
 
 </body>
 </html>
